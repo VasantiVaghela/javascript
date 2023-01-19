@@ -1,13 +1,24 @@
-const input = document.querySelector('input');
-const h1 = document.querySelector('h1');
+const heading = document.querySelector("h1");
+heading.textContent = "Web API example - Local Storage";
 
-h1.innerHTML = localStorage.getItem('value');
-input.addEventListener("keyup", display);
+//LOCAL STORAGE
 
-function display (){
-  // h1.innerHTML = input.value;
-  localStorage.setItem('value', input.value);
-  h1.innerHTML = localStorage.getItem('value');
-  
-}
-//  localStorage.clear()  //clear all the data in local storage
+localStorage.setItem('name','vasu');
+localStorage.getItem('vasu');
+localStorage.removeItem('name');
+
+//SESSION STORAGE
+
+sessionStorage.setItem('surname', 'vaghela');
+// console.log(sessionStorage.getItem('surname'));
+// sessionStorage.removeItem('surname');
+
+sessionStorage.setItem('surname','chavda');  // changing the value of "surname"
+
+
+//COOKIES
+
+document.cookie = 'name=vasanti; expires=' + new Date(2023, 1, 5).toUTCString()
+document.cookie = 'lastname=vaghela; expires=' + new Date(2023, 1, 5).toUTCString()
+
+console.log(document.cookie)
