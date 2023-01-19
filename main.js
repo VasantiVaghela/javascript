@@ -10,28 +10,26 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', loadPosts);
 
-
-
-
 function loadPosts() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://jsonplaceholder.typicode.com/posts" , true);
 
-  xhr.onload = function() {
-    if(this.status == 200) {
-      let posts = JSON.parse(this.responseText);
-
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
       let output = '';
-      for(let i in posts) {
-        output += 
+      data.forEach(post => {
+        output +=
 
-          ` <h1>${posts[i].title}</h1>
-              <p>${posts[i].body}</p>
+          ` <h1>${post.title}</h1>
+              <p>${post.body}</p>
           `;
-      }
+      }); 
       document.querySelector('.post').innerHTML = output;
-    }
+    })
+    .catch(err => {
+      console.log('failed');
+    })
   }
-  xhr.send();
+  
 
-}
