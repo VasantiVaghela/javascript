@@ -80,4 +80,5 @@ console.log(obj.a) */
 
 
 // Object.getOwnPropertyNames() ---- returns array of all properties
-console.log(Object.getOwnPropertyNames({ a: 1, b: 2 }))
+// console.log(Object.getOwnPropertyNames({ a: 1, b: 2 }))
+
